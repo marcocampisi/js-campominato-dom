@@ -9,14 +9,17 @@ let score = 0;
 
 easyButton.addEventListener('click', function() {
     selectDifficulty('facile');
+    score = 0;
 });
 
 normalButton.addEventListener('click', function() {
     selectDifficulty('normale');
+    score = 0;
 });
 
 hardButton.addEventListener('click', function() {
     selectDifficulty('difficile');
+    score = 0;
 });
 
 function selectDifficulty(difficulty) {
@@ -53,7 +56,8 @@ function selectDifficulty(difficulty) {
         mySquare.append(i);
         mySquare.addEventListener('click', function() {
             if (bombs.includes(+this.innerHTML)) {
-                this.style.backgroundColor = 'red'; //aggiungere fine gioco qui
+                this.style.backgroundColor = '#FD8A8A'; 
+                endGame(); //aggiungere fine gioco qui
             }
             else {
                 score++;
@@ -85,7 +89,10 @@ function endGame() {
         const cell = allCells[i];
         cell.onclick = null;
         if (!bombs.includes(parseInt(cell.innerHTML))) {
-            cell.style.backgroundColor = 'blue'
+            cell.style.backgroundColor = '#8294C4'
+        }
+        else {
+            cell.style.backgroundColor = '#FD8A8A';
         }
     }
     alert (`Partita terminata! Il tuo punteggio è ${score}`);
