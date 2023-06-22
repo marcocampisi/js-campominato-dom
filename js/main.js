@@ -25,6 +25,7 @@ hardButton.addEventListener('click', function() {
 function selectDifficulty(difficulty) {
     let gridSize;
     let cellNumber;
+    const clickedCells = [];
 
     switch (difficulty) {
         case 'facile':
@@ -55,6 +56,12 @@ function selectDifficulty(difficulty) {
         mySquare.classList.add('myCell', cellNumber);
         mySquare.append(i);
         mySquare.addEventListener('click', function() {
+            const cellIndex = i;
+            if (clickedCells.includes(cellIndex)) {
+                return;
+            }
+            clickedCells.push(cellIndex); 
+
             if (bombs.includes(+this.innerHTML)) {
                 this.style.backgroundColor = '#FD8A8A'; 
                 endGame();
