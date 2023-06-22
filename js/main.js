@@ -57,18 +57,17 @@ function selectDifficulty(difficulty) {
         mySquare.addEventListener('click', function() {
             if (bombs.includes(+this.innerHTML)) {
                 this.style.backgroundColor = '#FD8A8A'; 
-                endGame(); //aggiungere fine gioco qui
+                endGame();
             }
             else {
                 score++;
-                console.log(score);
+                if (score === gridSize - bombs.length) {
+                    endGame();
+                }
             }
             this.classList.toggle('active');
-            console.log(this.innerHTML);
         });
-    
         gridContainer.append(mySquare);
-    
     }
 }
 
