@@ -78,3 +78,15 @@ function generateBombs(gridSize) {
     }
     return bombs;
 }
+
+function endGame() {
+    const allCells = document.querySelectorAll('.myCell');
+    for (let i = 0; i < allCells.length; i++) {
+        const cell = allCells[i];
+        cell.onclick = null;
+        if (!bombs.includes(parseInt(cell.innerHTML))) {
+            cell.style.backgroundColor = 'blue'
+        }
+    }
+    alert (`Partita terminata! Il tuo punteggio è ${score}`);
+}
