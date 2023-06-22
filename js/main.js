@@ -4,6 +4,9 @@ const easyButton = document.querySelector('#easyButton');
 const normalButton = document.querySelector('#normalButton');
 const hardButton = document.querySelector('#hardButton');
 
+let bombs = [];
+let score = 0;
+
 easyButton.addEventListener('click', function() {
     selectDifficulty('facile');
 });
@@ -54,4 +57,15 @@ function selectDifficulty(difficulty) {
         gridContainer.append(mySquare);
     
     }
+}
+
+function generateBombs(gridSize) {
+    const bombs = [];
+    while (bombs.length < 16) {
+        const randomNumber = Math.floor(Math.random() * gridSize) + 1;
+        if (!bombs.includes(randomNumber)) {
+            bombs.push(randomNumber);
+        } 
+    }
+    return bombs;
 }
