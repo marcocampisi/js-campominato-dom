@@ -41,6 +41,8 @@ function selectDifficulty(difficulty) {
             return;
     }
 
+    bombs = generateBombs(gridSize);
+
     while (gridContainer.firstChild) {
         gridContainer.removeChild(gridContainer.firstChild);
     }
@@ -50,6 +52,13 @@ function selectDifficulty(difficulty) {
         mySquare.classList.add('myCell', cellNumber);
         mySquare.append(i);
         mySquare.addEventListener('click', function() {
+            if (bombs.includes(+this.innerHTML)) {
+                this.style.backgroundColor = 'red'; //aggiungere fine gioco qui
+            }
+            else {
+                score++;
+                console.log(score);
+            }
             this.classList.toggle('active');
             console.log(this.innerHTML);
         });
