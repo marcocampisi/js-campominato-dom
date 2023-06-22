@@ -1,0 +1,76 @@
+@import "reset.css";
+@import "general.css";
+@import url('https://fonts.cdnfonts.com/css/pixeloid-sans');
+
+/* MAIN */
+
+body {
+    background-image: url('https://img.freepik.com/free-vector/flat-design-pixel-art-cloud-illustration_23-2150215607.jpg?w=2000');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+h1 {
+    text-shadow: 2px 2px 5px black;
+}
+
+main .row {
+    height: 70px;
+}
+
+#grid-container {
+    width: 1100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#grid-container > .myCell {
+    text-align: center;
+    border: 2px solid #8294C4;
+    background-color: #FFEAD2;
+    transition: background-color 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+#grid-container > .myCell.myCell-easy {
+    width: calc(1000px / 10);
+    height: calc(1000px / 10);
+    line-height: calc(1000px / 10);
+}
+
+#grid-container > .myCell.myCell-normal {
+    width: calc(1000px / 9);
+    height: calc(1000px / 9);
+    line-height: calc(1000px / 9);
+}
+
+#grid-container > .myCell.myCell-hard {
+    width: calc(1000px / 7);
+    height: calc(1000px / 7);
+    line-height: calc(1000px / 7);
+}
+
+#grid-container > .myCell.active {
+    background-color: #ACB1D6;
+    transition: all 0.2s ease-in-out;
+}
+
+#easyButton,
+#normalButton,
+#hardButton {
+    padding: 10px;
+    background-color: #ACB1D6;
+    border: 2px solid #8294C4;
+    transition: .2s all ease-in-out;
+}
+
+#easyButton:hover,
+#normalButton:hover,
+#hardButton:hover {
+    opacity: .75;
+    font-size: larger;
+}
